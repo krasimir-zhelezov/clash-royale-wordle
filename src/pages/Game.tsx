@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function Game() {
     const cards: Card[] = cardsData;
-    const card = cards[Math.floor(Math.random() * cards.length)];
+    const [randomCard, setRandomCard] = useState(() => cards[Math.floor(Math.random() * cards.length)]);
 
     const [cardNames, setCardNames] = useState(cards.map(card => card.name));
     const [query, setQuery] = useState('');
@@ -22,10 +22,17 @@ export default function Game() {
         if (!cardName) return;
         
         setCardNames(cardNames.filter(card => card !== cardName));
+
+        console.log(cardName);
+
+        if (cardName == randomCard.name) {
+            alert('You win!');
+        }
     }
 
     return (
         <div>
+            <h1 onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
             <input value={query} onChange={(e) => {
                 setQuery(e.target.value);
             }} onKeyDown={(e) => e.key === 'Enter' && guessCard()}/>
