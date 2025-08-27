@@ -1,0 +1,34 @@
+[
+    {
+        "name": "Archers",
+        "rarity": "Common",
+        "type": "Troop",
+        "arena": "Training Camp",
+        "elixir": 3,
+        "releaseYear": 2016
+    },
+    {
+        "name": "Goblins",
+        "rarity": "Common",
+        "type": "Troop",
+        "arena": "Goblin Stadium",
+        "elixir": 2,
+        "releaseYear": 2016
+    },
+    {
+        "name": "Knight",
+        "rarity": "Common",
+        "type": "Troop",
+        "arena": "Training Camp",
+        "elixir": 3,
+        "releaseYear": 2016
+    },
+    {
+        "name": "Fireball",
+        "rarity": "Rare",
+        "type": "Spell",
+        "arena": "Training Camp",
+        "elixir": 4,
+        "releaseYear": 2016
+    }
+]
