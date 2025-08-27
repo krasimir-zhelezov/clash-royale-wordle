@@ -1,0 +1,8 @@
+export interface Card {
+    name: string,
+    rarity: string,
+    type: string,
+    arena: string,
+    elixir: number,
+    releaseYear: number
+}
