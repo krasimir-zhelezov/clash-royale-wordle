@@ -1,4 +1,4 @@
-export interface Card {
+export default interface Card {
     name: string,
     rarity: string,
     type: string,
