@@ -9,6 +9,7 @@ export default function Game() {
 
     const [cardNames, setCardNames] = useState(cards.map(card => card.name));
     const [query, setQuery] = useState('');
+    const [guessedCards, setGuessedCards] = useState<Card[]>([]);
 
     const filteredCards = cardNames.filter((card) => card.toLowerCase().includes(query.toLowerCase()));
 
@@ -29,8 +30,9 @@ export default function Game() {
             alert('You win!');
         } else {
             const guessedCard = cards.find(card => card.name === cardName);
+            guessedCards.push(guessedCard!);
             console.log("Name", "Rarity", "Type", "Arena", "Elixir", "Release Year");
-            console.log(guessedCard.name, randomCard.rarity === guessedCard.rarity ? 'green' : 'red', randomCard.type === guessedCard.type ? 'green' : 'red', randomCard.arena === guessedCard.arena ? 'green' : 'red', randomCard.elixir === guessedCard.elixir ? 'green' : (randomCard.elixir > guessedCard.elixir ? 'up' : 'down'), randomCard.releaseYear === guessedCard.releaseYear ? 'green' : (randomCard.releaseYear > guessedCard.releaseYear ? 'up' : 'down') );
+            console.log(guessedCard!.name, randomCard.rarity === guessedCard!.rarity ? 'green' : 'red', randomCard.type === guessedCard!.type ? 'green' : 'red', randomCard.arena === guessedCard!.arena ? 'green' : 'red', randomCard.elixir === guessedCard!.elixir ? 'green' : (randomCard.elixir > guessedCard!.elixir ? 'up' : 'down'), randomCard.releaseYear === guessedCard!.releaseYear ? 'green' : (randomCard.releaseYear > guessedCard!.releaseYear ? 'up' : 'down') );
         }
     }
 
@@ -48,6 +50,31 @@ export default function Game() {
                     ))}
                 </ul>
             )}
+
+            <table className="table-fixed border-1">
+                <thead className="border-2">
+                    <tr>
+                        <th>Card</th>
+                        <th>Rarity</th>
+                        <th>Type</th>
+                        <th>Arena</th>
+                        <th>Elixir</th>
+                        <th>Release Year</th>
+                    </tr>
+                </thead>
+                <tbody className="border-1">
+                    {guessedCards.map((card) => (
+                        <tr key={card.name}>
+                            <td>{card.name}</td>
+                            <td className={randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}>{card.rarity}</td>
+                            <td className={randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}>{card.type}</td>
+                            <td className={randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}>{card.arena}</td>
+                            <td className={randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}>{card.elixir}</td>
+                            <td className={randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}>{card.releaseYear}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     )
 }
