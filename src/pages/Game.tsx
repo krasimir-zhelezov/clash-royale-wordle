@@ -8,6 +8,8 @@ export default function Game() {
     console.log(card);
 
     return (
-        <h1>Game</h1>
+        <h1 className="text-3xl font-bold underline">
+            Hello world!
+        </h1>
     )
 }
