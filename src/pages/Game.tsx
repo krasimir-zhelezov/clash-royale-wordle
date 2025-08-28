@@ -12,6 +12,7 @@ export default function Game() {
 
     const [showAlert, setShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
+    const [gameOvber, setGameOver] = useState(false);
 
     const filteredCards = cardNames.filter((card) => card.toLowerCase().includes(query.toLowerCase()));
 
@@ -30,6 +31,7 @@ export default function Game() {
         if (cardName === randomCard.name) {
             setAlertMessage(`You guessed the card! It's ${randomCard.name}!`);
             setShowAlert(true);
+            setGameOver(true);
             setTimeout(() => setShowAlert(false), 3000);
         }
     }
@@ -55,6 +57,7 @@ export default function Game() {
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     onKeyDown={(e) => e.key === 'Enter' && guessCard()}
+                    disabled={gameOvber}
                 />
 
                 {query && filteredCards.length > 0 && (
@@ -110,6 +113,10 @@ export default function Game() {
                         ))}
                     </tbody>
                 </table>
+                
+                {guessedCards.length === 0 && <p className="mt-5">No guesses yet. Start by typing a card name above!</p>}
+
+                {gameOvber && <button className="border-3 border-amber-500 bg-amber-400 rounded-md w-1/2 p-2 mt-5 hover:bg-amber-300 hover:border-amber-400 focus:bg-amber-500 focus:border-amber-600 transition-colors duration-300" onClick={() => window.location.reload()}>Play Again</button>}
             </div>
         </div>
     )
