@@ -10,5 +10,6 @@
 @layer base {
   html {
     font-family: "ClashRegular", sans-serif;
+    background-color: lightskyblue;
   }
 }

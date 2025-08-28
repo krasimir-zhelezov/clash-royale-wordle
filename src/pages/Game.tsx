@@ -37,10 +37,10 @@ export default function Game() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center py-2 mt-30">
+        <div className="flex flex-col items-center justify-center py-2 mt-30 text-gray-900">
             <h1 className="text-3xl" onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
             <div className="flex flex-col items-center justify-center py-2">
-                <input className="border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300" placeholder="Guess a card" value={query} onChange={(e) => {
+                <input className="bg-white border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300" placeholder="Guess a card" value={query} onChange={(e) => {
                     setQuery(e.target.value);
                 }} onKeyDown={(e) => e.key === 'Enter' && guessCard()}/>
 
@@ -53,7 +53,7 @@ export default function Game() {
                 )}
 
                 <table className="table-fixed mt-5 border-separate">
-                    <thead className="border-2 border-t-0">
+                    <thead className="border-2 border-t-0 bg-gradient-to-b from-light-sky-blue to-blue-400">
                         <tr>
                             <th className="border-1 border-t-0 p-2 rounded-md">Card</th>
                             <th className="border-1 border-t-0 p-2 rounded-md">Rarity</th>
