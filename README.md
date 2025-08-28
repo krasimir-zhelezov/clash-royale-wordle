@@ -26,3 +26,10 @@ Once you guess the correct card, a message appears and you can restart the game.
 * TypeScript
 * TailwindCSS
 * JSON
+
+## License
+MIT License © 2025 Krasimir
+
+## ⚠️ Legal Notice
+This project uses Clash Royale card names and images, which are the intellectual property of Supercell. 
+You may use and modify the code freely under the MIT License, but **you may not use the card images, names, or other assets for commercial purposes** without permission from Supercell.
