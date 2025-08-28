@@ -4,5 +4,6 @@ export default interface Card {
     type: string,
     arena: string,
     elixir: number,
-    releaseYear: number
+    releaseYear: number,
+    image: string
 }

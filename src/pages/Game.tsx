@@ -52,7 +52,7 @@ export default function Game() {
                     </ul>
                 )}
 
-                <table className="table-fixed mt-5 border-separate">
+                <table className="table-fixed mt-5 border-separate text-center">
                     <thead className="border-2 border-t-0 bg-gradient-to-b from-light-sky-blue to-blue-400">
                         <tr>
                             <th className="border-1 border-t-0 p-2 rounded-md">Card</th>
@@ -66,12 +66,12 @@ export default function Game() {
                     <tbody className="border-1">
                         {guessedCards.slice().reverse().map((card) => (
                             <tr key={card.name}>
-                                <td className="p-2">{card.name}</td>
-                                <td className={`p-2 border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>{card.rarity}</td>
-                                <td className={`p-2 border-1 rounded-md ${randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}`}>{card.type}</td>
-                                <td className={`p-2 border-1 rounded-md ${randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}`}>{card.arena}</td>
-                                <td className={`p-2 border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>{card.elixir}</td>
-                                <td className={`p-2 border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>{card.releaseYear}</td>
+                                <td className="w-40 h-40"><img src={card.image}/></td>
+                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>{card.rarity}</td>
+                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}`}>{card.type}</td>
+                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}`}>{card.arena}</td>
+                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>{card.elixir}</td>
+                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>{card.releaseYear}</td>
                             </tr>
                         ))}
                     </tbody>
