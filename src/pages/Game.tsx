@@ -52,7 +52,7 @@ export default function Game() {
 
     const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-    const filteredCards = cardNames.filter((card) => normalize(card).includes(normalize(query))).slice().reverse();
+    const filteredCards = cardNames.filter((card) => normalize(card).includes(normalize(query))).reverse().slice(0, 5);;
 
     function guessCard(chosenCard?: string ) {
         const cardName = chosenCard || filteredCards[0];
