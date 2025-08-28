@@ -37,44 +37,46 @@ export default function Game() {
     }
 
     return (
-        <div>
+        <div className="flex flex-col items-center justify-center py-2 mt-30">
             <h1 onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
-            <input value={query} onChange={(e) => {
-                setQuery(e.target.value);
-            }} onKeyDown={(e) => e.key === 'Enter' && guessCard()}/>
+            <div className="flex flex-col items-center justify-center py-2">
+                <input className="mt-5" value={query} onChange={(e) => {
+                    setQuery(e.target.value);
+                }} onKeyDown={(e) => e.key === 'Enter' && guessCard()}/>
 
-            {query && filteredCards.length > 0 && (
-                <ul>
-                    {filteredCards.map((card) => (
-                        <li key={card} onClick={() => guessCard(card)}>{card}</li>
-                    ))}
-                </ul>
-            )}
+                {query && filteredCards.length > 0 && (
+                    <ul>
+                        {filteredCards.map((card) => (
+                            <li key={card} onClick={() => guessCard(card)}>{card}</li>
+                        ))}
+                    </ul>
+                )}
 
-            <table className="table-fixed border-1">
-                <thead className="border-2">
-                    <tr>
-                        <th>Card</th>
-                        <th>Rarity</th>
-                        <th>Type</th>
-                        <th>Arena</th>
-                        <th>Elixir</th>
-                        <th>Release Year</th>
-                    </tr>
-                </thead>
-                <tbody className="border-1">
-                    {guessedCards.map((card) => (
-                        <tr key={card.name}>
-                            <td>{card.name}</td>
-                            <td className={randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}>{card.rarity}</td>
-                            <td className={randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}>{card.type}</td>
-                            <td className={randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}>{card.arena}</td>
-                            <td className={randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}>{card.elixir}</td>
-                            <td className={randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}>{card.releaseYear}</td>
+                <table className="table-fixed border-1 mt-5">
+                    <thead className="border-2">
+                        <tr>
+                            <th>Card</th>
+                            <th>Rarity</th>
+                            <th>Type</th>
+                            <th>Arena</th>
+                            <th>Elixir</th>
+                            <th>Release Year</th>
                         </tr>
-                    ))}
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody className="border-1">
+                        {guessedCards.map((card) => (
+                            <tr key={card.name}>
+                                <td>{card.name}</td>
+                                <td className={randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}>{card.rarity}</td>
+                                <td className={randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}>{card.type}</td>
+                                <td className={randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}>{card.arena}</td>
+                                <td className={randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}>{card.elixir}</td>
+                                <td className={randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}>{card.releaseYear}</td>
+                            </tr>
+                        ))}
+                    </tbody>
+                </table>
+            </div>
         </div>
     )
 }
