@@ -101,9 +101,10 @@ export default function Game() {
                                         {card.arena}
                                     </td>
                                     <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.elixir === card!.elixir ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
-                                        {card.elixir}{" "}
-                                        {card.elixir > randomCard.elixir ? "⬇️" 
-                                            : card.elixir < randomCard.elixir ? "⬆️" 
+                                        {isNaN(card.elixir) ? "NaN" : card.elixir}{" "}
+                                        {isNaN(card.elixir) ? ""
+                                            : card.elixir > randomCard.elixir ? "⬇️"
+                                            : card.elixir < randomCard.elixir ? "⬆️"
                                             : ""}
                                     </td>
                                     <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
