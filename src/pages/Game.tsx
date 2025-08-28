@@ -167,7 +167,9 @@ export default function Game() {
             </div>
             <footer className="w-full text-center py-4 border-t border-gray-300 mt-auto">
                 <p className="text-gray-600">
-                Made by Krasimir Zhelezov <p></p>
+                    Made by Krasimir Zhelezov
+                </p>
+                <p className="text-gray-600">
                 <a href="https://www.instagram.com/krasimir.zhelezov/" target="_blank" rel="noopener noreferrer" className="hover:underline mx-2">Instagram</a>
                 <a href="https://github.com/krasimir-zhelezov/clash-royale-wordle/" target="_blank" rel="noopener noreferrer" className="hover:underline mx-2">GitHub</a>
                 <a href="https://www.paypal.com/paypalme/krasimirzhelezov" target="_blank" rel="noopener noreferrer" className="hover:underline mx-2">Donate</a>
