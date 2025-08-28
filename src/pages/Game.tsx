@@ -64,7 +64,7 @@ export default function Game() {
                         </tr>
                     </thead>
                     <tbody className="border-1">
-                        {guessedCards.map((card) => (
+                        {guessedCards.slice().reverse().map((card) => (
                             <tr key={card.name}>
                                 <td className="p-2">{card.name}</td>
                                 <td className={`p-2 border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>{card.rarity}</td>
