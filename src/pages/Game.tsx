@@ -38,7 +38,7 @@ export default function Game() {
 
     return (
         <div className="flex flex-col items-center justify-center py-2 mt-30">
-            <h1 onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
+            <h1 className="text-3xl" onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
             <div className="flex flex-col items-center justify-center py-2">
                 <input className="border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300" placeholder="Guess a card" value={query} onChange={(e) => {
                     setQuery(e.target.value);
