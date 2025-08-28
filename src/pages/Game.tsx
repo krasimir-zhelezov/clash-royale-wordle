@@ -50,7 +50,9 @@ export default function Game() {
     const [alertMessage, setAlertMessage] = useState('');
     const [gameOvber, setGameOver] = useState(false);
 
-    const filteredCards = cardNames.filter((card) => card.toLowerCase().replace(/[^a-z0-9]/g, "").includes(query.toLowerCase())).slice().reverse();
+    const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, "");
+
+    const filteredCards = cardNames.filter((card) => normalize(card).includes(normalize(query))).slice().reverse();
 
     function guessCard(chosenCard?: string ) {
         const cardName = chosenCard || filteredCards[0];
