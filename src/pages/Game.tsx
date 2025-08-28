@@ -26,13 +26,12 @@ export default function Game() {
 
         console.log(cardName);
 
+        const guessedCard = cards.find(card => card.name === cardName);
+        guessedCards.push(guessedCard!);
+            //console.log("Name", "Rarity", "Type", "Arena", "Elixir", "Release Year");
+            //console.log(guessedCard!.name, randomCard.rarity === guessedCard!.rarity ? 'green' : 'red', randomCard.type === guessedCard!.type ? 'green' : 'red', randomCard.arena === guessedCard!.arena ? 'green' : 'red', randomCard.elixir === guessedCard!.elixir ? 'green' : (randomCard.elixir > guessedCard!.elixir ? 'up' : 'down'), randomCard.releaseYear === guessedCard!.releaseYear ? 'green' : (randomCard.releaseYear > guessedCard!.releaseYear ? 'up' : 'down') );
         if (cardName == randomCard.name) {
-            alert('You win!');
-        } else {
-            const guessedCard = cards.find(card => card.name === cardName);
-            guessedCards.push(guessedCard!);
-            console.log("Name", "Rarity", "Type", "Arena", "Elixir", "Release Year");
-            console.log(guessedCard!.name, randomCard.rarity === guessedCard!.rarity ? 'green' : 'red', randomCard.type === guessedCard!.type ? 'green' : 'red', randomCard.arena === guessedCard!.arena ? 'green' : 'red', randomCard.elixir === guessedCard!.elixir ? 'green' : (randomCard.elixir > guessedCard!.elixir ? 'up' : 'down'), randomCard.releaseYear === guessedCard!.releaseYear ? 'green' : (randomCard.releaseYear > guessedCard!.releaseYear ? 'up' : 'down') );
+            alert(`You guessed the card! It's ${randomCard.name}!`);
         }
     }
 
@@ -87,14 +86,14 @@ export default function Game() {
                                 </td>
                                 <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>
                                     {card.elixir}{" "}
-                                    {card.elixir > randomCard.elixir ? "⬆️" 
-                                        : card.elixir < randomCard.elixir ? "⬇️" 
+                                    {card.elixir > randomCard.elixir ? "⬇️" 
+                                        : card.elixir < randomCard.elixir ? "⬆️" 
                                         : ""}
                                 </td>
                                 <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>
                                     {card.releaseYear}{" "}
-                                    {card.releaseYear > randomCard.releaseYear ? "⬆️" 
-                                        : card.releaseYear < randomCard.releaseYear ? "⬇️" 
+                                    {card.releaseYear > randomCard.releaseYear ? "⬇️" 
+                                        : card.releaseYear < randomCard.releaseYear ? "⬆️" 
                                         : ""}
                                 </td>
                             </tr>
