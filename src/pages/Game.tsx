@@ -31,6 +31,14 @@ export default function Game() {
         "Legendary Arena": 24
     };
 
+    const rarityToValue: { [key: string]: number } = {
+        "Common": 1,
+        "Rare": 2,
+        "Epic": 3,
+        "Legendary": 4,
+        "Champion": 5
+    };
+
     const cards: Card[] = cardsData;
     const [randomCard, setRandomCard] = useState(() => cards[Math.floor(Math.random() * cards.length)]);
 
@@ -120,7 +128,10 @@ export default function Game() {
                                         />
                                     </td>
                                     <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.rarity === card!.rarity ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
-                                        {card.rarity}
+                                        {card.rarity}{" "}
+                                        {rarityToValue[card.rarity] > rarityToValue[randomCard.rarity] ? "⬇️" 
+                                            : rarityToValue[card.rarity] < rarityToValue[randomCard.rarity] ? "⬆️" 
+                                            : ""}
                                     </td>
                                     <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.type === card!.type ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
                                         {card.type}
