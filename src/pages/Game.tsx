@@ -59,12 +59,12 @@ export default function Game() {
                 <table className="table-fixed mt-5 border-separate text-center">
                     <thead className="border-2 border-t-0 bg-gradient-to-b from-light-sky-blue to-blue-400">
                         <tr>
-                            <th className="border-1 border-t-0 p-2 rounded-md">Card</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md">Rarity</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md">Type</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md">Arena</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md">Elixir</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md">Release Year</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Card</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Rarity</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Type</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Arena</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Elixir</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Release Year</th>
                         </tr>
                     </thead>
                     <tbody className="border-black border-1 text-white">
