@@ -52,26 +52,26 @@ export default function Game() {
                     </ul>
                 )}
 
-                <table className="table-fixed border-1 mt-5">
-                    <thead className="border-2">
+                <table className="table-fixed mt-5 border-separate">
+                    <thead className="border-2 border-t-0">
                         <tr>
-                            <th>Card</th>
-                            <th>Rarity</th>
-                            <th>Type</th>
-                            <th>Arena</th>
-                            <th>Elixir</th>
-                            <th>Release Year</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md">Card</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md">Rarity</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md">Type</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md">Arena</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md">Elixir</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md">Release Year</th>
                         </tr>
                     </thead>
                     <tbody className="border-1">
                         {guessedCards.map((card) => (
                             <tr key={card.name}>
-                                <td>{card.name}</td>
-                                <td className={randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}>{card.rarity}</td>
-                                <td className={randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}>{card.type}</td>
-                                <td className={randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}>{card.arena}</td>
-                                <td className={randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}>{card.elixir}</td>
-                                <td className={randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}>{card.releaseYear}</td>
+                                <td className="p-2">{card.name}</td>
+                                <td className={`p-2 border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>{card.rarity}</td>
+                                <td className={`p-2 border-1 rounded-md ${randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}`}>{card.type}</td>
+                                <td className={`p-2 border-1 rounded-md ${randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}`}>{card.arena}</td>
+                                <td className={`p-2 border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>{card.elixir}</td>
+                                <td className={`p-2 border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>{card.releaseYear}</td>
                             </tr>
                         ))}
                     </tbody>
