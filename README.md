@@ -1,5 +1,5 @@
 # Clash Royale Wordle
-A small React game inspired by [Royaledle](https://royaledle.com/) and [Clasherdle](https://clasherdle.pixelcrux.com/), where you try to guess a random Clash Royale card based on hints from its stats. This project is different because it lets you play as many times as you want, without the usual daily limit.
+A small React game inspired by [Royaledle](https://royaledle.com/) and [Clasherdle](https://clasherdle.pixelcrux.com/), where you try to guess a random Clash Royale card based on hints from its stats. Unlike other versions, this project lets you play as many times as you want, without the usual daily limit.
 
 ## Usage
 Type in the input box to guess a card name. The game will give you visual hints by highlighting the card's Rarity, Type, Arena, Elixir, and Release Year:
