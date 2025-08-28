@@ -1,6 +1,5 @@
 import type Card from '../types/Card';
 import cardsData from '../data/cards.json';
-import { Combobox } from '@headlessui/react';
 import { useState } from 'react';
 
 export default function Game() {
@@ -11,27 +10,27 @@ export default function Game() {
     const [query, setQuery] = useState('');
     const [guessedCards, setGuessedCards] = useState<Card[]>([]);
 
+    const [showAlert, setShowAlert] = useState(false);
+    const [alertMessage, setAlertMessage] = useState('');
+
     const filteredCards = cardNames.filter((card) => card.toLowerCase().includes(query.toLowerCase()));
 
     function guessCard(chosenCard?: string ) {
         const cardName = chosenCard || filteredCards[0];
         
-        console.log(cardName);
-
         setQuery('');
 
         if (!cardName) return;
         
         setCardNames(cardNames.filter(card => card !== cardName));
 
-        console.log(cardName);
-
         const guessedCard = cards.find(card => card.name === cardName);
         guessedCards.push(guessedCard!);
-            //console.log("Name", "Rarity", "Type", "Arena", "Elixir", "Release Year");
-            //console.log(guessedCard!.name, randomCard.rarity === guessedCard!.rarity ? 'green' : 'red', randomCard.type === guessedCard!.type ? 'green' : 'red', randomCard.arena === guessedCard!.arena ? 'green' : 'red', randomCard.elixir === guessedCard!.elixir ? 'green' : (randomCard.elixir > guessedCard!.elixir ? 'up' : 'down'), randomCard.releaseYear === guessedCard!.releaseYear ? 'green' : (randomCard.releaseYear > guessedCard!.releaseYear ? 'up' : 'down') );
-        if (cardName == randomCard.name) {
-            alert(`You guessed the card! It's ${randomCard.name}!`);
+
+        if (cardName === randomCard.name) {
+            setAlertMessage(`You guessed the card! It's ${randomCard.name}!`);
+            setShowAlert(true);
+            setTimeout(() => setShowAlert(false), 3000);
         }
     }
 
@@ -40,12 +39,23 @@ export default function Game() {
     }
 
     return (
-        <div className="flex flex-col items-center justify-center py-2 mt-30 text-gray-900">
+        <div className="flex flex-col items-center justify-center py-2 mt-30 text-gray-900 relative">
             <h1 className="text-3xl" onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
+
+            {showAlert && (
+                <div className="absolute -top-20 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-all">
+                    {alertMessage}
+                </div>
+            )}
+
             <div className="flex flex-col items-center justify-center py-2">
-                <input className="bg-white border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300" placeholder="Guess a card" value={query} onChange={(e) => {
-                    setQuery(e.target.value);
-                }} onKeyDown={(e) => e.key === 'Enter' && guessCard()}/>
+                <input
+                    className="bg-white border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300"
+                    placeholder="Guess a card"
+                    value={query}
+                    onChange={(e) => setQuery(e.target.value)}
+                    onKeyDown={(e) => e.key === 'Enter' && guessCard()}
+                />
 
                 {query && filteredCards.length > 0 && (
                     <ul>
