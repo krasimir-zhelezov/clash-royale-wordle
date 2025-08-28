@@ -36,6 +36,10 @@ export default function Game() {
         }
     }
 
+    function cardNameToId(name: string) {
+        return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    }
+
     return (
         <div className="flex flex-col items-center justify-center py-2 mt-30 text-gray-900">
             <h1 className="text-3xl" onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
@@ -66,7 +70,7 @@ export default function Game() {
                     <tbody className="border-black border-1 text-white">
                         {guessedCards.slice().reverse().map((card) => (
                             <tr key={card.name}>
-                                <td className="w-20 h-20"><img src={card.image}/></td>
+                                <td className="w-20 h-20"><img src={`https://cdns3.royaleapi.com/cdn-cgi/image/w=150,h=180,format=auto/static/img/cards/v6-aa179c9e/${cardNameToId(card.name)}.png`}/></td>
                                 <td className={`w-20 h-20 border-black border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>{card.rarity}</td>
                                 <td className={`w-20 h-20 border-black border-1 rounded-md ${randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}`}>{card.type}</td>
                                 <td className={`w-20 h-20 border-black border-1 rounded-md ${randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}`}>{card.arena}</td>

@@ -14,8 +14,7 @@
         "type": "Troop",
         "arena": "Goblin Stadium",
         "elixir": 2,
-        "releaseYear": 2016,
-        "image": "https://cdns3.royaleapi.com/cdn-cgi/image/w=150,h=180,format=auto/static/img/cards/v6-aa179c9e/goblins.png"
+        "releaseYear": 2016
     },
     {
         "name": "Knight",
@@ -23,8 +22,7 @@
         "type": "Troop",
         "arena": "Training Camp",
         "elixir": 3,
-        "releaseYear": 2016,
-        "image": "https://cdns3.royaleapi.com/cdn-cgi/image/w=150,h=180,format=auto/static/img/cards/v6-aa179c9e/knight.png"
+        "releaseYear": 2016
     },
     {
         "name": "Fireball",
@@ -32,7 +30,6 @@
         "type": "Spell",
         "arena": "Training Camp",
         "elixir": 4,
-        "releaseYear": 2016,
-        "image": "https://cdns3.royaleapi.com/cdn-cgi/image/w=150,h=180,format=auto/static/img/cards/v6-aa179c9e/fireball.png"
+        "releaseYear": 2016
     }
 ]
