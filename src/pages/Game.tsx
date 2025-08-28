@@ -69,6 +69,8 @@ export default function Game() {
                         </ul>
                     )}
 
+                    {gameOvber && <button className="border-3 hover:cursor-pointer hover:scale-105 border-amber-500 bg-amber-400 rounded-md w-1/2 p-2 mt-5 hover:bg-amber-300 hover:border-amber-400 focus:bg-amber-500 focus:border-amber-600 transition-colors duration-300" onClick={() => window.location.reload()}>Play Again</button>}
+
                     <table className="table-fixed mt-5 border-separate text-center">
                         <thead className="border-2 border-t-0">
                             <tr>
@@ -116,8 +118,6 @@ export default function Game() {
                     </table>
                     
                     {guessedCards.length === 0 && <p className="mt-5">No guesses yet. Start by typing a card name above!</p>}
-
-                    {gameOvber && <button className="border-3 hover:cursor-pointer hover:scale-105 border-amber-500 bg-amber-400 rounded-md w-1/2 p-2 mt-5 hover:bg-amber-300 hover:border-amber-400 focus:bg-amber-500 focus:border-amber-600 transition-colors duration-300" onClick={() => window.location.reload()}>Play Again</button>}
                 </div>
             </div>
             <footer className="w-full text-center py-4 border-t border-gray-300 mt-auto">
