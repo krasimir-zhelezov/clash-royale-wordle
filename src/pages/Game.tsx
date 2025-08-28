@@ -63,15 +63,15 @@ export default function Game() {
                             <th className="border-1 border-t-0 p-2 rounded-md">Release Year</th>
                         </tr>
                     </thead>
-                    <tbody className="border-1">
+                    <tbody className="border-black border-1 text-white">
                         {guessedCards.slice().reverse().map((card) => (
                             <tr key={card.name}>
                                 <td className="w-40 h-40"><img src={card.image}/></td>
-                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>{card.rarity}</td>
-                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}`}>{card.type}</td>
-                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}`}>{card.arena}</td>
-                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>{card.elixir}</td>
-                                <td className={`w-40 h-40 border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>{card.releaseYear}</td>
+                                <td className={`w-40 h-40 border-black border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>{card.rarity}</td>
+                                <td className={`w-40 h-40 border-black border-1 rounded-md ${randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}`}>{card.type}</td>
+                                <td className={`w-40 h-40 border-black border-1 rounded-md ${randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}`}>{card.arena}</td>
+                                <td className={`w-40 h-40 border-black border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>{card.elixir}</td>
+                                <td className={`w-40 h-40 border-black border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>{card.releaseYear}</td>
                             </tr>
                         ))}
                     </tbody>
