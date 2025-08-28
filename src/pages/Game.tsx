@@ -52,7 +52,7 @@ export default function Game() {
 
             <div className="flex flex-col items-center justify-center py-2">
                 <input
-                    className="bg-white border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300"
+                    className="hover:cursor-pointer bg-white border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300"
                     placeholder="Guess a card"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
@@ -69,41 +69,41 @@ export default function Game() {
                 )}
 
                 <table className="table-fixed mt-5 border-separate text-center">
-                    <thead className="border-2 border-t-0 bg-gradient-to-b from-light-sky-blue to-blue-400">
+                    <thead className="border-2 border-t-0">
                         <tr>
-                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Card</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Rarity</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Type</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Arena</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Elixir</th>
-                            <th className="border-1 border-t-0 p-2 rounded-md w-25">Release Year</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25 hover:scale-105 transition-colors duration-300 hover:bg-gradient-to-b hover:from-light-sky-blue hover:to-blue-400">Card</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25 hover:scale-105 transition-colors duration-300 hover:bg-gradient-to-b hover:from-light-sky-blue hover:to-blue-400">Rarity</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25 hover:scale-105 transition-colors duration-300 hover:bg-gradient-to-b hover:from-light-sky-blue hover:to-blue-400">Type</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25 hover:scale-105 transition-colors duration-300 hover:bg-gradient-to-b hover:from-light-sky-blue hover:to-blue-400">Arena</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25 hover:scale-105 transition-colors duration-300 hover:bg-gradient-to-b hover:from-light-sky-blue hover:to-blue-400">Elixir</th>
+                            <th className="border-1 border-t-0 p-2 rounded-md w-25 hover:scale-105 transition-colors duration-300 hover:bg-gradient-to-b hover:from-light-sky-blue hover:to-blue-400">Release Year</th>
                         </tr>
                     </thead>
                     <tbody className="border-black border-1 text-white">
                         {guessedCards.slice().reverse().map((card) => (
                             <tr key={card.name}>
-                                <td className="w-25 h-25">
+                                <td className="w-25 h-25 hover:scale-105">
                                     <img 
                                         src={`https://cdns3.royaleapi.com/cdn-cgi/image/w=150,h=180,format=auto/static/img/cards/v6-aa179c9e/${cardNameToId(card.name)}.png`}
                                         className="w-full h-full object-cover"
                                     />
                                 </td>
-                                <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.rarity === card!.rarity ? 'bg-green-700' : 'bg-red-700'}`}>
+                                <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.rarity === card!.rarity ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
                                     {card.rarity}
                                 </td>
-                                <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.type === card!.type ? 'bg-green-700' : 'bg-red-700'}`}>
+                                <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.type === card!.type ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
                                     {card.type}
                                 </td>
-                                <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.arena === card!.arena ? 'bg-green-700' : 'bg-red-700'}`}>
+                                <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.arena === card!.arena ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
                                     {card.arena}
                                 </td>
-                                <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>
+                                <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.elixir === card!.elixir ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
                                     {card.elixir}{" "}
                                     {card.elixir > randomCard.elixir ? "⬇️" 
                                         : card.elixir < randomCard.elixir ? "⬆️" 
                                         : ""}
                                 </td>
-                                <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>
+                                <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
                                     {card.releaseYear}{" "}
                                     {card.releaseYear > randomCard.releaseYear ? "⬇️" 
                                         : card.releaseYear < randomCard.releaseYear ? "⬆️" 
@@ -116,7 +116,7 @@ export default function Game() {
                 
                 {guessedCards.length === 0 && <p className="mt-5">No guesses yet. Start by typing a card name above!</p>}
 
-                {gameOvber && <button className="border-3 border-amber-500 bg-amber-400 rounded-md w-1/2 p-2 mt-5 hover:bg-amber-300 hover:border-amber-400 focus:bg-amber-500 focus:border-amber-600 transition-colors duration-300" onClick={() => window.location.reload()}>Play Again</button>}
+                {gameOvber && <button className="border-3 hover:cursor-pointer hover:scale-105 border-amber-500 bg-amber-400 rounded-md w-1/2 p-2 mt-5 hover:bg-amber-300 hover:border-amber-400 focus:bg-amber-500 focus:border-amber-600 transition-colors duration-300" onClick={() => window.location.reload()}>Play Again</button>}
             </div>
         </div>
     )
