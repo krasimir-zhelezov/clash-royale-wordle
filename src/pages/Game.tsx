@@ -3,6 +3,34 @@ import cardsData from '../data/cards.json';
 import { useState } from 'react';
 
 export default function Game() {
+    const arenaToPosition: { [key: string]: number } = {
+        "Training Camp": 0,
+        "Goblin Stadium": 1,
+        "Bone Pit": 2,
+        "Barbarian Bowl": 3,
+        "Spell Valley": 4,
+        "Builder's Workshop": 5,
+        "P.E.K.K.A.'s Playhouse": 6,
+        "Royal Arena": 7,
+        "Frozen Peak": 8,
+        "Jungle Arena": 9,
+        "Hog Mountain": 10,
+        "Electro Valley": 11,    
+        "Spooky Town": 12,
+        "Rascal's Hideout": 13,
+        "Serenity Peak": 14,
+        "Miner's Mine": 15,
+        "Executioner's Kitchen": 16,
+        "Royal Crypt": 17,
+        "Silent Sanctuary": 18,
+        "Dragon Spa": 19,
+        "Boot Camp": 20,
+        "Clash Fest": 21,
+        "PANCAKES!": 22,
+        "Valkalla": 23,
+        "Legendary Arena": 24
+    };
+
     const cards: Card[] = cardsData;
     const [randomCard, setRandomCard] = useState(() => cards[Math.floor(Math.random() * cards.length)]);
 
@@ -98,7 +126,10 @@ export default function Game() {
                                         {card.type}
                                     </td>
                                     <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.arena === card!.arena ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
-                                        {card.arena}
+                                        {card.arena}{" "}
+                                        {arenaToPosition[card.arena] > arenaToPosition[randomCard.arena] ? "⬇️" 
+                                            : arenaToPosition[card.arena] < arenaToPosition[randomCard.arena] ? "⬆️" 
+                                            : ""}
                                     </td>
                                     <td className={`w-25 h-25 border-black border-1 rounded-md hover:scale-105 transition-colors duration-300 ${randomCard.elixir === card!.elixir ? 'bg-green-700 hover:bg-green-600' : 'bg-red-700 hover:bg-red-600'}`}>
                                         {isNaN(card.elixir) ? "NaN" : card.elixir}{" "}
