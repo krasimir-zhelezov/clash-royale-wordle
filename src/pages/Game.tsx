@@ -86,10 +86,16 @@ export default function Game() {
                                     {card.arena}
                                 </td>
                                 <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.elixir === card!.elixir ? 'bg-green-700' : 'bg-red-700'}`}>
-                                    {card.elixir}
+                                    {card.elixir}{" "}
+                                    {card.elixir > randomCard.elixir ? "⬆️" 
+                                        : card.elixir < randomCard.elixir ? "⬇️" 
+                                        : ""}
                                 </td>
                                 <td className={`w-25 h-25 border-black border-1 rounded-md ${randomCard.releaseYear === card!.releaseYear ? 'bg-green-700' : 'bg-red-700'}`}>
-                                    {card.releaseYear}
+                                    {card.releaseYear}{" "}
+                                    {card.releaseYear > randomCard.releaseYear ? "⬆️" 
+                                        : card.releaseYear < randomCard.releaseYear ? "⬇️" 
+                                        : ""}
                                 </td>
                             </tr>
                         ))}
