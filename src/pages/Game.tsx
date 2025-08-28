@@ -64,7 +64,7 @@ export default function Game() {
                     {query && filteredCards.length > 0 && (
                         <ul>
                             {filteredCards.map((card) => (
-                                <li key={card} onClick={() => guessCard(card)}>{card}</li>
+                                <li className="hover:cursor-pointer" key={card} onClick={() => guessCard(card)}>{card}</li>
                             ))}
                         </ul>
                     )}
