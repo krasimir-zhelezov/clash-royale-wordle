@@ -44,7 +44,7 @@ export default function Game() {
 
     const [cardNames, setCardNames] = useState(cards.map(card => card.name));
     const [query, setQuery] = useState('');
-    const [guessedCards, setGuessedCards] = useState<Card[]>([]);
+    const [guessedCards] = useState<Card[]>([]);
 
     const [showAlert, setShowAlert] = useState(false);
     const [alertMessage, setAlertMessage] = useState('');
@@ -87,12 +87,6 @@ export default function Game() {
 
     function cardNameToId(name: string) {
         return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
-    }
-
-    async function loadCards(): Promise<Card[]> {
-        const response = await fetch("/data/cards.json");
-        const data: Card[] = await response.json();
-        return data;
     }
 
     return (
