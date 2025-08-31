@@ -1,6 +1,8 @@
 import type Card from '../types/Card';
 // import cardsData from '../data/cards.json';
 import { useEffect, useState } from 'react';
+import logo from '../assets/logo.png';
+import cardsData from '../assets/data/cards.json';
 
 export default function Game() {
     const arenaToPosition: { [key: string]: number } = {
@@ -39,10 +41,14 @@ export default function Game() {
         "Champion": 5
     };
 
-    const BASE_PATH = window.location.hostname === "localhost" ? "" : "/clash-royale-wordle";
+    // const BASE_PATH = window.location.hostname === "localhost" ? "" : "/clash-royale-wordle";
 
-    const [cards, setCards] = useState<Card[]>([]);
-    const [randomCard, setRandomCard] = useState(() => cards[Math.floor(Math.random() * cards.length)]);
+    const cards: Card[] = cardsData.map(card => ({
+        ...card,
+        releaseYear: Number(card.releaseYear),
+        elixir: Number(card.elixir)
+    }));
+    const [randomCard] = useState(() => cards[Math.floor(Math.random() * cards.length)]);
 
     const [cardNames, setCardNames] = useState(cards.map(card => card.name));
     const [query, setQuery] = useState('');
@@ -57,14 +63,14 @@ export default function Game() {
     const filteredCards = cardNames.filter((card) => normalize(card).includes(normalize(query))).reverse().slice(0, 5);
 
     useEffect(() => {
-        async function loadCards() {
-            const response = await fetch(`${BASE_PATH}/data/cards.json`);
-            const data: Card[] = await response.json();
-            setCards(data);
-            setCardNames(data.map(card => card.name));
-            setRandomCard(data[Math.floor(Math.random() * data.length)]);
-        }
-        loadCards();
+        // async function loadCards() {
+        //     const response = await fetch(`${BASE_PATH}/data/cards.json`);
+        //     const data: Card[] = await response.json();
+        //     setCards(data);
+        //     setCardNames(data.map(card => card.name));
+        //     setRandomCard(data[Math.floor(Math.random() * data.length)]);
+        // }
+        // loadCards();
     }, []);
 
     function guessCard(chosenCard?: string ) {
@@ -94,6 +100,7 @@ export default function Game() {
     return (
         <div className="flex flex-col min-h-screen">
             <div className="flex flex-col items-center justify-center py-2 mt-30 text-gray-900 relative">
+                <img src={logo} height="200px" width="200px"></img>
                 <h1 className="text-3xl" onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
 
                 {showAlert && (
