@@ -102,7 +102,18 @@ export default function Game() {
                     {query && filteredCards.length > 0 && (
                         <ul>
                             {filteredCards.map((card) => (
-                                <li className="hover:cursor-pointer" key={card} onClick={() => guessCard(card)}>{card}</li>
+                            <li
+                                className="hover:cursor-pointer flex items-center gap-2"
+                                key={card}
+                                onClick={() => guessCard(card)}
+                            >
+                                <img
+                                src={`https://cdns3.royaleapi.com/cdn-cgi/image/w=60,h=72,format=auto/static/img/cards/v6-aa179c9e/${cardNameToId(card)}.png`}
+                                alt={card}
+                                className="w-[40px] h-auto rounded"
+                                />
+                                <span>{card}</span>
+                            </li>
                             ))}
                         </ul>
                     )}
