@@ -39,6 +39,8 @@ export default function Game() {
         "Champion": 5
     };
 
+    const BASE_PATH = window.location.hostname === "localhost" ? "" : "/clash-royale-wordle";
+
     const [cards, setCards] = useState<Card[]>([]);
     const [randomCard, setRandomCard] = useState(() => cards[Math.floor(Math.random() * cards.length)]);
 
@@ -56,7 +58,7 @@ export default function Game() {
 
     useEffect(() => {
         async function loadCards() {
-            const response = await fetch("/data/cards.json");
+            const response = await fetch(`${BASE_PATH}/data/cards.json`);
             const data: Card[] = await response.json();
             setCards(data);
             setCardNames(data.map(card => card.name));
