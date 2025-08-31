@@ -98,10 +98,10 @@ export default function Game() {
     }
 
     return (
-        <div className="flex flex-col min-h-screen">
-            <div className="flex flex-col items-center justify-center py-2 mt-30 text-gray-900 relative">
-                <img src={logo} height="200px" width="200px"></img>
-                <h1 className="text-3xl" onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
+        <div className="flex flex-col min-h-screen px-4 sm:px-8">
+            <div className="flex flex-col items-center justify-center py-2 mt-10 sm:mt-20 text-gray-900 relative">
+                <img className="w-40 h-40 sm:w-52 sm:h-52 md:w-60 md:h-60" src={logo}></img>
+                <h1 className="text-2xl sm:text-3xl md:text-4xl" onClick={() => console.log(randomCard)}>Clash Royale Wordle</h1>
 
                 {showAlert && (
                     <div className="absolute -top-20 bg-green-500 text-white px-4 py-2 rounded shadow-lg transition-all">
@@ -110,14 +110,16 @@ export default function Game() {
                 )}
 
                 <div className="flex flex-col items-center justify-center py-2">
-                    <input
-                        className="hover:cursor-pointer bg-white border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300"
-                        placeholder="Guess a card"
-                        value={query}
-                        onChange={(e) => setQuery(e.target.value)}
-                        onKeyDown={(e) => e.key === 'Enter' && guessCard()}
-                        disabled={gameOvber}
-                    />
+                    <div className="mx-auto w-[280px] sm:w-[320px] md:w-full">
+                        <input
+                            className="hover:cursor-pointer bg-white border-2 border-gray-600 rounded-md placeholder:text-gray-600 w-full text-center focus:outline-none focus:placeholder-transparent p-2 mt-5 hover:shadow-lg hover:bg-gray-50 transition-colors duration-300"
+                            placeholder="Guess a card"
+                            value={query}
+                            onChange={(e) => setQuery(e.target.value)}
+                            onKeyDown={(e) => e.key === 'Enter' && guessCard()}
+                            disabled={gameOvber}
+                        />
+                    </div>
 
                     {query && filteredCards.length > 0 && (
                         <ul>
@@ -140,7 +142,8 @@ export default function Game() {
 
                     {gameOvber && <button className="border-3 hover:cursor-pointer hover:scale-105 border-amber-500 bg-amber-400 rounded-md w-1/2 p-2 mt-5 hover:bg-amber-300 hover:border-amber-400 focus:bg-amber-500 focus:border-amber-600 transition-colors duration-300" onClick={() => window.location.reload()}>Play Again</button>}
 
-                    <table className="table-fixed mt-5 border-separate text-center">
+                    <div className="overflow-x-auto mt-5 mx-auto w-[280px] sm:w-[320px] md:w-full">
+                    <table className="table-auto border-separate text-center w-full min-w-[600px]">
                         <thead className="border-2 border-t-0">
                             <tr>
                                 <th className="border-1 border-t-0 p-2 rounded-md w-25 hover:scale-105 transition-colors duration-300 hover:bg-gradient-to-b hover:from-light-sky-blue hover:to-blue-400">Card</th>
@@ -192,6 +195,7 @@ export default function Game() {
                             ))}
                         </tbody>
                     </table>
+                    </div>
                     
                     {guessedCards.length === 0 && <p className="mt-5">No guesses yet. Start by typing a card name above!</p>}
                 </div>
