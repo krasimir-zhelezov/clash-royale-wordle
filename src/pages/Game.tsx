@@ -1,6 +1,6 @@
 import type Card from '../types/Card';
-import cardsData from '../data/cards.json';
-import { useState } from 'react';
+// import cardsData from '../data/cards.json';
+import { useEffect, useState } from 'react';
 
 export default function Game() {
     const arenaToPosition: { [key: string]: number } = {
@@ -39,7 +39,7 @@ export default function Game() {
         "Champion": 5
     };
 
-    const cards: Card[] = cardsData;
+    const [cards, setCards] = useState<Card[]>([]);
     const [randomCard, setRandomCard] = useState(() => cards[Math.floor(Math.random() * cards.length)]);
 
     const [cardNames, setCardNames] = useState(cards.map(card => card.name));
@@ -52,7 +52,18 @@ export default function Game() {
 
     const normalize = (str: string) => str.toLowerCase().replace(/[^a-z0-9]/g, "");
 
-    const filteredCards = cardNames.filter((card) => normalize(card).includes(normalize(query))).reverse().slice(0, 5);;
+    const filteredCards = cardNames.filter((card) => normalize(card).includes(normalize(query))).reverse().slice(0, 5);
+
+    useEffect(() => {
+        async function loadCards() {
+            const response = await fetch("/data/cards.json");
+            const data: Card[] = await response.json();
+            setCards(data);
+            setCardNames(data.map(card => card.name));
+            setRandomCard(data[Math.floor(Math.random() * data.length)]);
+        }
+        loadCards();
+    }, []);
 
     function guessCard(chosenCard?: string ) {
         const cardName = chosenCard || filteredCards[0];
@@ -76,6 +87,12 @@ export default function Game() {
 
     function cardNameToId(name: string) {
         return name.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '');
+    }
+
+    async function loadCards(): Promise<Card[]> {
+        const response = await fetch("/data/cards.json");
+        const data: Card[] = await response.json();
+        return data;
     }
 
     return (
