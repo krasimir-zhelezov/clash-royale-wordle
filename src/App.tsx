@@ -1,13 +1,15 @@
 import './App.css'
-import { Route, Routes } from 'react-router-dom'
+import { HashRouter, Route, Routes } from 'react-router-dom'
 import Game from './pages/Game'
 
 function App() {
 
   return (
-    <Routes>
-      <Route path="/" element={<Game/>} />
-    </Routes>
+    <HashRouter>
+      <Routes>
+        <Route path="/" element={<Game/>} />
+      </Routes>
+    </HashRouter>
   )
 }
 
