@@ -1,3 +1,10 @@
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![TailwindCSS](https://img.shields.io/badge/TailwindCSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white)
+![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
+
+
 # Clash Royale Wordle
 A small React game inspired by [Royaledle](https://royaledle.com/) and [Clasherdle](https://clasherdle.pixelcrux.com/), where you try to guess a random Clash Royale card based on hints from its stats. Unlike other versions, this project lets you play as many times as you want, without the usual daily limit.
 
