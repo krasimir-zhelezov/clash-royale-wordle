@@ -3,6 +3,7 @@ import type Card from '../types/Card';
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo.png';
 import cardsData from '../assets/data/cards.json';
+import { Link } from 'react-router-dom';
 
 export default function Game() {
     const arenaToPosition: { [key: string]: number } = {
@@ -209,7 +210,7 @@ export default function Game() {
                     &copy; 2025 CRWordle
                 </p>
                 <p className="text-xs mt-1">
-                    <a href='mailto:zhelezov.krasimir@gmail.com'>Contact</a> • Privacy Policy • About • Not affiliated with Supercell
+                    <a href='mailto:zhelezov.krasimir@gmail.com'>Contact</a> • Privacy Policy • <Link to="/about">About</Link> • Not affiliated with Supercell
                 </p>
             </footer>
         </div>
